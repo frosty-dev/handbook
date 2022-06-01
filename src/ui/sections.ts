@@ -50,6 +50,7 @@ import access from "@/assets/images/tab-icons/access.svg";
 import xmorph from "@/assets/images/tab-icons/xmorph.svg";
 import abduction from "@/assets/images/tab-icons/abduction.svg";
 import mafia from "@/assets/images/tab-icons/mafia.svg";
+import drinks from "~scripts/pages/drinks";
 
 export interface SectionInfo {
   name: string;
@@ -128,10 +129,10 @@ const sections: SectionInfo[] = [
       { page: "Guide_to_Combat", text: "Бой", icon: combat },
       { page: "Syndicate_Items", text: "Аплинк", icon: uplink },
       { page: "Illicit_Access", text: "Проникновение", icon: access },
-      { page: "Revolutionary", text: "Революция", icon: rev },
+      { page: "Revolution", text: "Революция", icon: rev },
       { page: "Blood_Cult", text: "Культ", icon: cult },
       { page: "Nuclear_Operative", text: "Нюка", icon: nuke },
-      { page: "Guide_to_malfunction", text: "Малф", icon: malf },
+      { page: "Malfunctioning_AI", text: "Малф", icon: malf },
       { page: "Xenos", text: "Ксеносы", icon: xmorph },
       { page: "Abductor", text: "Абдукторы", icon: abduction },
       { page: "Families", text: "Семьи", icon: mafia },
@@ -142,7 +143,7 @@ const sections: SectionInfo[] = [
     name: "Другое",
     tabs: [
       { page: "Rules", text: "Правила", icon: rules },
-      { page: "AI_modules", text: "Модули ИИ", icon: aimod },
+      { page: "Ai_Modules", text: "Модули ИИ", icon: aimod },
       {
         page: "Guide_to_Awesome_Miscellaneous_Stuff",
         text: "Разное",
@@ -150,7 +151,8 @@ const sections: SectionInfo[] = [
       },
       { page: "Critters", text: "Существа", icon: critter },
       { page: "Guide_to_races", text: "Мутанты", icon: races },
-      { page: "Guide_to_food_and_drinks", text: "Еда", icon: food },
+      { page: "Guide_to_food", text: "Еда", icon: food },
+      { page: "Guide_to_drinks", text: "Напитки", icon: chemistry },
       { page: "Guide_to_hydroponics", text: "Ботаника", icon: hydro },
       { page: "Songs", text: "Музыка", icon: song },
       { page: "Supply_crates", text: "Карго", icon: crate },
