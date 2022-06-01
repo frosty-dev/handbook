@@ -1,4 +1,4 @@
-const WIKI_BASE = "https://tgproxy.ovo.ovh/wiki";
+const WIKI_BASE = "https://wiki.station13.ru";
 
 /**
  * Get HTML content of a page using Mediawiki Parse APIs

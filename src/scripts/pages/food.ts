@@ -2,6 +2,29 @@ import { parseTable, makeTable } from "../utils";
 import { registerSearchEntries } from "../search";
 
 export function processFood(root: HTMLElement): void {
+  const drinkTables = ["[id='.D0.9E.D1.81.D0.BD.D0.BE.D0.B2.D0.BD.D1.8B.D0.B5_.D0.B8.D0.BD.D0.B3.D1.80.D0.B8.D0.B4.D0.B8.D0.B5.D0.BD.D1.82.D1.8B_.D0.BD.D0.B0.D0.BF.D0.B8.D1.82.D0.BA.D0.BE.D0.B2']", "[id='.D0.9A.D0.BE.D0.BA.D1.82.D0.B5.D0.B9.D0.BB.D0.B8']"];
+  drinkTables.forEach((selector) => {
+    const table = root.querySelector<HTMLElement>(`${selector} .wikitable`);
+    const drinks = parseTable(table).map((row) => {
+      const foodBlock = document.createElement("td");
+      foodBlock.innerHTML = `
+<div class="food-pic">${row["Изображение"].innerHTML}</div>
+<div class="food-name">${row["Коктейль"].innerHTML}</div>
+<p class="strength">${row["Крепкость"].innerHTML}</p>
+<p class="description">${row["Описание напитка"].innerHTML}</p>
+<p class="notes">${row["Заметки"].innerHTML}</p>
+`;
+      const ingredients = row["Ingredients"].innerHTML
+        .split(/,|\+/gi)
+        .map((s) => `<p>${s.trim()}</p>`);
+      row["Ingredients"].innerHTML = ingredients.join("");
+      return { Drink: foodBlock, Ingredients: row["Ingredients"] };
+    });
+    const betterTable = makeTable(["Drink", "Ingredients"], drinks);
+    betterTable.className = "drink-ext wikitable";
+    table.replaceWith(betterTable);
+  });
+
   const baseFoodTables = [
     {
       selector: "#Butchering",

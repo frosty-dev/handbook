@@ -75,10 +75,19 @@ export function processGlobal(root: HTMLElement, docname: string): void {
   if (toc) {
     const tocHeader = toc.querySelector("h2");
     toc.parentNode.insertBefore(tocHeader, toc);
-    const tocTitle = toc.querySelector("#toctitle");
-    if (tocTitle != null) {
-      toc.removeChild(tocTitle);
+    const tocFuck = root.querySelector(".toctitle");
+    const assblast = root.querySelector("#toc").parentElement;
+    if (assblast.className === "") {
+      assblast.replaceWith(toc)
     }
+    if (tocFuck) {
+      toc.removeChild(tocFuck);
+    }
+  }
+
+  const guidesTable = root.querySelector("#guides_table");
+  if (guidesTable) {
+    guidesTable.remove();
   }
 
   // Group headers and content so stickies don't overlap

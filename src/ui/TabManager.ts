@@ -69,7 +69,9 @@ async function loadPage(
     }
 
     // Convert relative links to absolute (and proxied)
-    html = html.replace(/"\/wiki/gi, '"//tgproxy.ovo.ovh/wiki');
+    if (html) {
+      html = html.replace(/"\/images/gi, '"//wiki.station13.ru/images');
+    }
 
     await nextAnimationFrame();
 
@@ -150,7 +152,7 @@ export default class TabManager {
       initWaiting(this.tabContentContainer);
       const spinnerContainer = this.tabContentContainer.querySelector(".speen");
       spinnerContainer.appendChild(
-        document.createTextNode("Loading wiki pages")
+        document.createTextNode("Загружаем страницы")
       );
     } else {
       document.getElementById("app").classList.remove("waiting");

@@ -67,7 +67,7 @@ async function load() {
     if (devSinglePage) {
       manager.setActive(devSinglePage[1]);
     } else {
-      manager.showSection("Medical");
+      manager.showSection("Медицина");
       welcome.classList.add("active");
     }
   });

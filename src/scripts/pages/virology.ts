@@ -3,20 +3,20 @@ import { registerSearchEntries } from "../search";
 
 export function processVirology(root: HTMLElement): void {
   const diseaseTable = root.querySelector<HTMLElement>(
-    "#Simple_Diseases .wikitable"
+    "[id='.D0.9F.D1.80.D0.BE.D1.81.D1.82.D1.8B.D0.B5_.D0.B7.D0.B0.D0.B1.D0.BE.D0.BB.D0.B5.D0.B2.D0.B0.D0.BD.D0.B8.D1.8F'] .wikitable"
   );
   const diseases = parseTable(diseaseTable).map((row) => {
     const diseaseBlock = document.createElement("td");
     diseaseBlock.innerHTML = `
-    <div class="disease-name">${row["Disease Name"].innerHTML}</div>
-    <p class="vector">${row["Vector Name"].innerHTML}</p>
-    <p class="source">${row["Source"].innerHTML}</p>
-    <p class="spread">${row["Spread"].innerHTML}</p>
-    <p class="description">${row["Description"].innerHTML}</p>
+    <div class="disease-name">${row["Название болезни"].innerHTML}</div>
+    <p class="vector">${row["Переносчик болезни"].innerHTML}</p>
+    <p class="source">${row["Источник"].innerHTML}</p>
+    <p class="spread">${row["Способ распространения"].innerHTML}</p>
+    <p class="description">${row["Описание"].innerHTML}</p>
     `;
     return {
       Disease: diseaseBlock,
-      Cure: row["Cure"],
+      Cure: row["Способ лечения"],
     };
   });
 
@@ -25,32 +25,32 @@ export function processVirology(root: HTMLElement): void {
   diseaseTable.replaceWith(diseaseBetterTable);
 
   const symptomsTable = root.querySelector<HTMLElement>(
-    "#Symptoms_Table .wikitable"
+    "[id='.D0.A2.D0.B0.D0.B1.D0.BB.D0.B8.D1.86.D0.B0_.D0.A1.D0.B8.D0.BC.D0.BF.D1.82.D0.BE.D0.BC.D0.BE.D0.B2'] .wikitable"
   );
   const symptoms = parseTable(symptomsTable)
     .sort(
       (a, b) =>
-        parseInt(a["Level"].textContent, 10) -
-        parseInt(b["Level"].textContent, 10)
+        parseInt(a["Уровень"].textContent, 10) -
+        parseInt(b["Уровень"].textContent, 10)
     )
     .map((row) => {
       const symptomBlock = document.createElement("td");
       symptomBlock.innerHTML = `
-    <div class="disease-name">${row["Symptom"].innerHTML}</div>
-    <p class="level">${row["Level"].innerHTML}</p>
-    <p class="chemical">${row["Required Chemical"].innerHTML}</p>
-    <p class="description">${row["Effect"].innerHTML}</p>
+    <div class="disease-name">${row["Симптом"].innerHTML}</div>
+    <p class="level">${row["Уровень"].innerHTML}</p>
+    <p class="chemical">${row["Необходимые реагенты"].innerHTML}</p>
+    <p class="description">${row["Эффект"].innerHTML}</p>
     `;
       const symptomStats = document.createElement("td");
       symptomStats.innerHTML = `
     <table class="stats">
-      <tr><th>Stealth</th><td>${row["Stealth"].innerHTML}</td></tr>
-      <tr><th>Resistance</th><td>${row["Resistance"].innerHTML}</td></tr>
-      <tr><th>Stage speed</th><td>${row["Stage speed"].innerHTML}</td></tr>
-      <tr><th>Transmission</th><td>${row["Transmission"].innerHTML}</td></tr>
+      <tr><th>Stealth</th><td>${row["Скрытность"].innerHTML}</td></tr>
+      <tr><th>Resistance</th><td>${row["Защита"].innerHTML}</td></tr>
+      <tr><th>Stage speed</th><td>${row["Скорость развития"].innerHTML}</td></tr>
+      <tr><th>Transmission</th><td>${row["Скорость распространения"].innerHTML}</td></tr>
     </table>
     `;
-      const thresholds = row["Threshold (hover mouse over for details)"];
+      const thresholds = row["Порог (наведите курсор мыши для подробностей)"];
       thresholds.innerHTML = `<ul class="thresholds"><li>${thresholds.innerHTML
         .split(",")
         .join("</li><li>")}</li></ul>`;
