@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import chemistry from "@/assets/images/tab-icons/chemistry.svg";
 import medicine from "@/assets/images/tab-icons/medicine.svg";
 import plumbing from "@/assets/images/tab-icons/plumbing.svg";
@@ -50,7 +51,6 @@ import access from "@/assets/images/tab-icons/access.svg";
 import xmorph from "@/assets/images/tab-icons/xmorph.svg";
 import abduction from "@/assets/images/tab-icons/abduction.svg";
 import mafia from "@/assets/images/tab-icons/mafia.svg";
-import drinks from "@/assets/images/tab-icons/drinks.svg";
 
 export interface SectionInfo {
   name: string;
@@ -156,7 +156,7 @@ const sections: SectionInfo[] = [
       { page: "Critters", text: "Существа", icon: critter },
       { page: "Guide_to_races", text: "Мутанты", icon: races },
       { page: "Guide_to_food", text: "Еда", icon: food },
-      { page: "Guide_to_drinks", text: "Напитки", icon: drinks },
+      { page: "Guide_to_drinks", text: "Напитки", icon: chemistry },
       { page: "Guide_to_hydroponics", text: "Ботаника", icon: hydro },
       { page: "Songs", text: "Музыка", icon: song },
       { page: "Supply_crates", text: "Карго", icon: crate },
