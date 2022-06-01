@@ -50,7 +50,7 @@ import access from "@/assets/images/tab-icons/access.svg";
 import xmorph from "@/assets/images/tab-icons/xmorph.svg";
 import abduction from "@/assets/images/tab-icons/abduction.svg";
 import mafia from "@/assets/images/tab-icons/mafia.svg";
-import drinks from "~scripts/pages/drinks";
+import drinks from "@/assets/images/tab-icons/drinks.svg";
 
 export interface SectionInfo {
   name: string;
@@ -81,7 +81,11 @@ const sections: SectionInfo[] = [
   {
     name: "Инженерия",
     tabs: [
-      { page: "Guide_to_construction", text: "Строительство", icon: construction },
+      {
+        page: "Guide_to_construction",
+        text: "Строительство",
+        icon: construction,
+      },
       {
         page: "Guide_to_advanced_construction",
         text: "Машины",
@@ -152,7 +156,7 @@ const sections: SectionInfo[] = [
       { page: "Critters", text: "Существа", icon: critter },
       { page: "Guide_to_races", text: "Мутанты", icon: races },
       { page: "Guide_to_food", text: "Еда", icon: food },
-      { page: "Guide_to_drinks", text: "Напитки", icon: chemistry },
+      { page: "Guide_to_drinks", text: "Напитки", icon: drinks },
       { page: "Guide_to_hydroponics", text: "Ботаника", icon: hydro },
       { page: "Songs", text: "Музыка", icon: song },
       { page: "Supply_crates", text: "Карго", icon: crate },
